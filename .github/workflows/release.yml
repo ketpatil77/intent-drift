@@ -135,10 +135,18 @@ jobs:
     name: Publish to TestPyPI
     needs: [release]
     if: needs.release.outputs.version != ''
+    # The called workflow requests id-token: write (Trusted Publishing).
+    # GITHUB_TOKEN permissions can only be maintained or reduced down the
+    # call chain, never elevated, so the caller must grant it here or the
+    # run fails at startup with no jobs created.
+    permissions:
+      id-token: write
     uses: ./.github/workflows/publish-test.yml
 
   publish-pypi:
     name: Publish to PyPI
     needs: [release, publish-test]
     if: needs.release.outputs.version != ''
+    permissions:
+      id-token: write
     uses: ./.github/workflows/publish.yml
