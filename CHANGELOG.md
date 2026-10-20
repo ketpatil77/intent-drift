@@ -10,6 +10,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Automatically released via the scheduled release workflow.
+
+## [0.1.3] - 2026-10-20
+
+### Added
+
 - Attribution line at the end of rendered reports, pointing back to the
   project website.
 
