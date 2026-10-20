@@ -11,7 +11,7 @@ class ArchitectureProvider(EvidenceProvider):
     """Detects architectural drift, unnecessary complexity, and hidden rewrites.
 
     Architectural integrity is assessed from the git diff shape: (a) a rewrite
-    signature — large deletions paired with large additions in the same files —
+    signature (large deletions paired with large additions in the same files)
     suggests a hidden rewrite rather than targeted change; (b) an explosion of
     new files/symbols suggests unnecessary complexity or overengineering; (c) a
     healthy, mostly-additive change tightly scoped to a few files indicates the

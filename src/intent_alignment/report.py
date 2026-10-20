@@ -75,7 +75,7 @@ def render_report(report: AlignmentReport) -> str:
         lines.append("")
 
     lines.append("-" * 50)
-    lines.append(f"Detected with Intent Drift — {PROJECT_URL}")
+    lines.append(f"Detected with Intent Drift - {PROJECT_URL}")
 
     return "\n".join(lines)
 

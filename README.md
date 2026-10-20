@@ -6,7 +6,7 @@
 
 Dependency-free Python library that detects **intent drift** in AI-assisted development: it compares the original goal against the current plan and execution activity, and returns an explainable alignment report.
 
-**🌐 Website: [intent-drift.vercel.app](https://intent-drift.vercel.app)** — features, real report gallery, quickstarts, and changelog.
+**🌐 Website: [intent-drift.vercel.app](https://intent-drift.vercel.app)** - features, real report gallery, quickstarts, and changelog.
 
 ## Install
 
@@ -50,7 +50,7 @@ print(report.recommendation)
 
 ## How It Works
 
-The engine runs the context through pluggable **evidence providers** — goal alignment, constraints, scope, architecture, execution, file graph, dependencies, requirement coverage, and problematic findings. Each emits weighted evidence that is aggregated into an overall alignment score, confidence, status, and recommendation. No external NLP dependencies: matching is transparent token/alias-based, so every score is traceable to specific input text.
+The engine runs the context through pluggable **evidence providers** - goal alignment, constraints, scope, architecture, execution, file graph, dependencies, requirement coverage, and problematic findings. Each emits weighted evidence that is aggregated into an overall alignment score, confidence, status, and recommendation. No external NLP dependencies: matching is transparent token/alias-based, so every score is traceable to specific input text.
 
 ## Extending
 

@@ -6,6 +6,26 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+## [0.1.3] - 2026-10-20
+
+### Added
+
+- Attribution line at the end of rendered reports, pointing back to the
+  project website.
+
+### Fixed
+
+- Scheduled release workflow failed at startup on every run since
+  2026-09-01, because the reusable publish workflows request
+  `id-token: write` while the caller granted only `contents: write`.
+  `GITHUB_TOKEN` permissions cannot be elevated through a reusable
+  workflow call, so the jobs are now granted `id-token: write` explicitly.
+
+### Changed
+
+- Replaced all em dashes with ASCII hyphens across documentation, source
+  comments, and rendered output.
+
 ## [0.1.2] - 2026-08-31
 
 ### Added
@@ -30,7 +50,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- **README.md**: Completely rewritten — concise project description, simplified quickstart with dict-based context, added badges, removed verbose architecture docs, added development setup instructions
+- **README.md**: Completely rewritten - concise project description, simplified quickstart with dict-based context, added badges, removed verbose architecture docs, added development setup instructions
 - `pyproject.toml`: Fixed `target-version` and `python_version` config (were incorrectly set to version string)
 - `AlignmentReport.breakdown` type: changed from `dict[str, dict]` to `dict[str, ScoreComponent]` for type safety
 - Confidence calculation in `utils.py`: extracted weights as named constants, improved variance scaling
