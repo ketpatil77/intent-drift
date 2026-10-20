@@ -2,6 +2,11 @@ name: Publish to PyPI
 
 on:
   workflow_call:
+    inputs:
+      version:
+        description: "Version being released (used to check out the release tag)."
+        required: false
+        type: string
   workflow_dispatch:
 
 permissions:
@@ -12,10 +17,14 @@ jobs:
     name: Build and publish to PyPI
     runs-on: ubuntu-latest
     environment:
-      name: pypi
+      name: PyPi
       url: https://pypi.org/p/intent-drift
     steps:
       - uses: actions/checkout@v4
+        with:
+          # See publish-test.yml: checkout must target the tag the release
+          # job just pushed, not the commit that triggered the run.
+          ref: ${{ inputs.version && format('v{0}', inputs.version) || github.ref }}
 
       - uses: actions/setup-python@v5
         with:

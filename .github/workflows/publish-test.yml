@@ -2,6 +2,11 @@ name: Publish to TestPyPI
 
 on:
   workflow_call:
+    inputs:
+      version:
+        description: "Version being released (used to check out the release tag)."
+        required: false
+        type: string
   workflow_dispatch:
 
 permissions:
@@ -16,6 +21,13 @@ jobs:
       url: https://test.pypi.org/p/intent-drift
     steps:
       - uses: actions/checkout@v4
+        with:
+          # When called from release.yml, the release job bumps the version
+          # and pushes a new tag during this same run. A reusable workflow
+          # otherwise checks out the commit that *triggered* the run, which
+          # is the pre-bump SHA, so the build would produce the previous
+          # version and fail to upload (file already exists).
+          ref: ${{ inputs.version && format('v{0}', inputs.version) || github.ref }}
 
       - uses: actions/setup-python@v5
         with:

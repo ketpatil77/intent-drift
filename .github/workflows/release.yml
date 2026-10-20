@@ -141,6 +141,10 @@ jobs:
     # run fails at startup with no jobs created.
     permissions:
       id-token: write
+    # Pass the bumped version so the reusable workflow checks out the tag
+    # pushed by the release job rather than the pre-bump trigger commit.
+    with:
+      version: ${{ needs.release.outputs.version }}
     uses: ./.github/workflows/publish-test.yml
 
   publish-pypi:
@@ -149,4 +153,6 @@ jobs:
     if: needs.release.outputs.version != ''
     permissions:
       id-token: write
+    with:
+      version: ${{ needs.release.outputs.version }}
     uses: ./.github/workflows/publish.yml
