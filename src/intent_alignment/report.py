@@ -6,6 +6,11 @@ __all__ = [
     "render_report",
 ]
 
+# Attribution footer. Reports get pasted into issues, PRs, and team chats,
+# which makes them a distribution surface: every shared report carries a
+# pointer back to the project. Deliberately not configurable.
+PROJECT_URL = "https://intent-drift.vercel.app"
+
 
 def render_report(report: AlignmentReport) -> str:
     """
@@ -68,6 +73,9 @@ def render_report(report: AlignmentReport) -> str:
         for entry in report.timeline:
             lines.append(f"  {entry.get('stage', 'Unknown')}: {entry.get('score', 0):.0f}%")
         lines.append("")
+
+    lines.append("-" * 50)
+    lines.append(f"Detected with Intent Drift — {PROJECT_URL}")
 
     return "\n".join(lines)
 
