@@ -6,6 +6,8 @@
 
 Dependency-free Python library that detects **intent drift** in AI-assisted development: it compares the original goal against the current plan and execution activity, and returns an explainable alignment report.
 
+**🌐 Website: [intent-drift.vercel.app](https://intent-drift.vercel.app)** — features, real report gallery, quickstarts, and changelog.
+
 ## Install
 
 ```bash

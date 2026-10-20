@@ -50,7 +50,7 @@ docs = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/shauryagangrade/intent-drift"
+Homepage = "https://intent-drift.vercel.app"
 Repository = "https://github.com/shauryagangrade/intent-drift"
 Issues = "https://github.com/shauryagangrade/intent-drift/issues"
 Documentation = "https://github.com/shauryagangrade/intent-drift#readme"
